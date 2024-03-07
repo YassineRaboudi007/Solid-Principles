@@ -22,6 +22,9 @@ public class EncodingModuleBase64 implements IEncodingModule
             writer.close();
         }catch(Exception ex){
             // Do stuff 
+        }finally{
+            reader.close();
+            writer.close();
         }
     }
 }

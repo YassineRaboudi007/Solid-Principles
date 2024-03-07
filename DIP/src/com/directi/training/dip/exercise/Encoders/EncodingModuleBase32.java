@@ -16,12 +16,13 @@ public class EncodingModuleBase32 implements IEncodingModule
     {
         try{
             reader.read();
-            reader.close();
             String encodedLine = Base64.getEncoder().encodeToString(aLine.getBytes());
             writer.write(encodedLine);
-            writer.close();
         }catch(Exception ex){
             // Do stuff 
+        }finally{
+            reader.close();
+            writer.close();
         }
     }
 }
