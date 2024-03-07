@@ -2,15 +2,15 @@ package com.directi.training.ocp.exercise;
 
 public class ResourceAllocator
 {
-    public int allocate(AFreeRessource resourceType)
+    public int allocate(IFreeRessource resourceType)
     {
-        int resourceId = findFreeTimeSlot();
-        markTimeSlotBusy(resourceId);
+        int resourceId = resourceType.findFreeTimeSlot();
+        resourceType.markTimeSlotBusy(resourceId);
         return resourceId;
     }
 
-    public void free(AFreeRessource resourceType, int resourceId)
+    public void free(IFreeRessource resourceType, int resourceId)
     {
-        markTimeSlotFree(resourceId);
+        resourceType.markTimeSlotFree(resourceId);
     }
 }

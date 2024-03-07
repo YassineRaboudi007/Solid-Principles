@@ -2,7 +2,7 @@ package com.directi.training.isp.exercise;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public class TimedDoor implements Door, ITimedDoor
+public class TimedDoor implements IDoor, ITimedDoor
 {
     private static final int TIME_OUT = 100;
     private boolean _locked;

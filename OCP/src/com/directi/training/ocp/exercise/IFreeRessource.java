@@ -1,10 +1,10 @@
 package com.directi.training.isp.exercise;
 
-public interface AFreeRessource
+public interface IFreeRessource
 {
     int findFreeSlot(int resourceId)
 
     void markSlotFree(int resourceId)
 
-    void markSpaceSlotBusy(int resourceId)
+    void markSlotBusy(int resourceId)
 }
