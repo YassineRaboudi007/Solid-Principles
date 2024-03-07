@@ -16,7 +16,7 @@ public class EncodingModuleBase32 implements IEncodingModule
     {
         try{
             reader.read();
-            String encodedLine = Base64.getEncoder().encodeToString(aLine.getBytes());
+            String encodedLine = Base32.getEncoder().encodeToString(aLine.getBytes());
             writer.write(encodedLine);
         }catch(Exception ex){
             // Do stuff 
