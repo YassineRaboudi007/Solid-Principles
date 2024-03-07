@@ -9,13 +9,13 @@ public class EncodingModuleClient
 
         IEncodingModule encodingModule = new Base64EncoderModule();
 
-        CustomFileReader fileReader = new CustomFileReader(beforeEncryptionFile);
-        CustomFileWriter fileWriter = new CustomFileWriter(afterEncryptionFile);
+        IReader fileReader = new CustomFileReader(beforeEncryptionFile);
+        IWriter fileWriter = new CustomFileWriter(afterEncryptionFile);
 
         encodingModule.encode(fileReader, fileWriter);
 
-        NetworkReader networkReader = new NetworkReader("http", "myfirstappwith.appspot.com", "/index.html");
-        DatabaseWriter dbWriter = new DatabaseWriter();
+        IReader networkReader = new NetworkReader("http", "myfirstappwith.appspot.com", "/index.html");
+        IWriter dbWriter = new DatabaseWriter();
 
         encodingModule.encode(networkReader, dbWriter);
     }

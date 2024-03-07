@@ -1,0 +1,21 @@
+@startuml
+class ResourceAllocator{
+    + int allocate(IFreeRessource resourceType)
+    + void free(IFreeRessource resourceType, int resourceId)
+}
+
+interface IFreeRessource
+{
+    int findFreeSlot(int resourceId)
+    void markSlotFree(int resourceId)
+    void markSlotBusy(int resourceId)
+}
+
+class FreeTimeSlot implements IFreeRessource{
+}
+
+class FreeSpaceSlot implements IFreeRessource{
+}
+
+ResourceAllocator -> IFreeRessource
+@enduml

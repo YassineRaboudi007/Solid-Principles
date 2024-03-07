@@ -1,6 +1,6 @@
 package com.directi.training.ocp.exercise;
 
-public class ResourceAllocator extends IFreeRessource
+public class FreeTimeSlot implements IFreeRessource
 {
     private void markSlotFree(int resourceId)
     {
