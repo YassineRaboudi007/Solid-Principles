@@ -1,8 +1,8 @@
 @startuml
 class Pool{
     + void run()
-    - void quack(Duck... ducks)
-    - void swim(Duck... ducks)
+    - void quack(IDuck... ducks)
+    - void swim(IDuck... ducks)
     + static void main(String[] args)
 }
 

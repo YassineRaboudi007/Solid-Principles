@@ -1,26 +1,3 @@
-interface IEncodingModule {
-    void encode(IReader reader,IWriter writer) throws IOException
-}
-
-interface IWriter {
-    void write(String buff) throws IOException
-    void close() throws IOException;
-}
-
-class DatabaseWriter implements IWriter {
-    - MyDatabase database
-}
-
-
-class CustomFileWriter implements IWriter {
-    - BufferedWriter _writer
-    + CustomFileWriter(String filename) throws IOException 
-}
-
-interface IReader {
-    String read() throws IOException
-    void close() throws IOException
-}
 
 class CustomFileReader implements IReader {
     - BufferedReader _reader
@@ -33,13 +10,36 @@ class NetworkReader implements IReader {
     + NetworkReader(String proto, String host, String path) throws MalformedURLException, IOException
 }
 
+class DatabaseWriter implements IWriter {
+    - MyDatabase database
+}
+
+
+class CustomFileWriter implements IWriter {
+    - BufferedWriter _writer
+    + CustomFileWriter(String filename) throws IOException 
+}
+
 class EncodingModuleClient
 {
     + static void main(String[] args) throws IOException
 }
+interface IEncodingModule {
+    void encode(IReader reader,IWriter writer) throws IOException
+}
 
-EncodingModuleClient -> IReader
-EncodingModuleClient -> IWriter
+interface IWriter {
+    void write(String buff) throws IOException
+    void close() throws IOException;
+}
+
+
+interface IReader {
+    String read() throws IOException
+    void close() throws IOException
+}
+
+
 EncodingModuleClient -> IEncodingModule
 IEncodingModule -> IReader
 IEncodingModule -> IWriter
